@@ -32,7 +32,8 @@ const CartPage = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <Cart cart={cartItems} />
+        <p>Cart hidden</p>
+       // <Cart cart={cartItems} />
       )}
     </div>
   );

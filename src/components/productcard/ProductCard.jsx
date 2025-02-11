@@ -1,10 +1,14 @@
 // ProductCard.js
 import React from 'react';
 import './ProductCard.css';
+import { useState } from 'react';
 
-const ProductCard = ({ product, onAddToCart }) => {
+
+
+const ProductCard = ({ product,onSelect, onAddToCart }) => {
+
     return (
-        <div className="product-card">
+        <div className="product-card" onClick={()=>onSelect(product)}>
             <img src={product.image} alt={product.name} className="product-image" />
             <div className="product-details">
                 <h3 className="product-name">{product.name}</h3>
