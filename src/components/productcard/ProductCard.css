@@ -8,7 +8,7 @@
   transition: transform 0.2s;
   background-color: #fff;
   max-width: 300px; /* Limit card width */
-  margin: 16px; /* Add margin between cards */
+  margin: 10px; /* Add margin between cards */
 }
 
 .product-card:hover {

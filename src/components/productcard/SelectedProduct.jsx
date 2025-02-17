@@ -1,18 +1,38 @@
-import React from 'react'
+import React from "react";
+import "./SelectedProduct.css";
+import { useNavigate } from "react-router-dom";
 
-const SelectedProduct = (product,onBack,onSelect) => {
+const SelectedProduct = ({ product, onBack, onAddToCart }) => {
+  const navigate=useNavigate();
+  if (!product) return <p className="no-product">No Product Selected!</p>;
 
-    if(!product)
-        <p>No Product Selected!!!</p>
+  const handleBuyNow=()=>{
+     navigate("/checkout",{state:{product}})
+  }
+
   return (
-<>
-  <div >
-      <h1>{product.name}</h1>
-    <button onClick={onBack}> Back</button>
-    <button onClick={onAddToCart(product)}>Add to Cart</button>
-  </div>
-</>  
-)
-}
+    <div className="selected-product-container">
+      <img
+        className="selected-product-image"
+        src={product.image}
+        alt={product.name}
+      />
+      <div className="selected-product-details">
+        <h1>{product.name}</h1>
+        <p className="selected-product-description">{product.description}</p>
+        <h3 className="selected-product-price">Price: ${product.price}</h3>
 
-export default SelectedProduct
+        <div className="selected-product-buttons">
+          <button className="back-btn" onClick={onBack}>
+            Back
+          </button>
+          <button className="buy-now-btn" onClick={() => handleBuyNow}>
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SelectedProduct;
